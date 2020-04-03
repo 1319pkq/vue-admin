@@ -66,6 +66,8 @@
 </template>
 
 <script>
+// 加密
+import sha1 from "js-sha1";
 import { GetSms, Register, Login } from "@/api/login";
 import { stripscript } from "@/utils/validate";
 export default {
@@ -148,7 +150,7 @@ export default {
       timer: {},
       // 表单
       ruleForm: {
-        username: "",
+        username: "111@qq.com",
         password: "",
         password2: "",
         code: ""
@@ -202,7 +204,7 @@ export default {
     login() {
       let requestData = {
         username: this.ruleForm.username,
-        password: this.ruleForm.password,
+        password: sha1(this.ruleForm.password),
         code: this.ruleForm.code
       };
       // 登录接口
@@ -222,7 +224,7 @@ export default {
     register() {
       let requestData = {
         username: this.ruleForm.username,
-        password: this.ruleForm.password,
+        password: sha1(this.ruleForm.password),
         code: this.ruleForm.code
       };
       // 注册接口
