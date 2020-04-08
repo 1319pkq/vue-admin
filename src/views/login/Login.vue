@@ -150,9 +150,9 @@ export default {
       timer: {},
       // 表单
       ruleForm: {
-        username: "111@qq.com",
-        password: "",
-        password2: "",
+        username: "1122334455@qq.com",
+        password: "p1122334455",
+        password2: "p1122334455",
         code: ""
       },
       rules: {
@@ -215,6 +215,13 @@ export default {
             message: response.data.message,
             type: "success"
           });
+          this.$router.push({
+            name: 'Layout',
+            query: {
+              id: 1,
+              name: "pkq"
+            }
+          })
         })
         .catch(error => {
           console.log(error);

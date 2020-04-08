@@ -1,19 +1,91 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// 登陆
-import Login from "../views/login/Login";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    redirect: "login"
+    redirect: "login",
+    meta: {
+      title: "主页"
+    },
+    hidden: true
   },
   {
     path: "/login",
     name: "Login",
-    component: Login
+    component: () => import("../views/login/Login"),
+    meta: {
+      title: "登录"
+    },
+    hidden: true
+  },
+  // ************************************************************控制台******************************
+  {
+    path: "/layout",
+    name: "Layout",
+    component: () => import("../views/layout/Layout"),
+    redirect: "console",
+    meta: {
+      title: "控制台"
+    },
+    children: [
+      {
+        path: "/console",
+        name: "Console",
+        component: () => import("../views/console/Console"),
+        meta: {
+          title: "控制台首页"
+        }
+      }
+    ]
+  },
+  // ************************************************************信息******************************
+  {
+    path: "/info",
+    name: "Info",
+    component: () => import("../views/layout/Layout"),
+    meta: {
+      title: "信息管理"
+    },
+    children: [
+      {
+        path: "/infoList",
+        name: "InfoList",
+        component: () => import("../views/info/InfoList"),
+        meta: {
+          title: "信息列表"
+        }
+      },
+      {
+        path: "/infoSort",
+        name: "InfoSort",
+        component: () => import("../views/info/InfoSort"),
+        meta: {
+          title: "信息分类"
+        }
+      }
+    ]
+  },
+  // ************************************************************用户******************************
+  {
+    path: "/layout",
+    name: "Layout",
+    component: () => import("../views/layout/Layout"),
+    meta: {
+      title: "用户管理"
+    },
+    children: [
+      {
+        path: "/user",
+        name: "User",
+        component: () => import("../views/user/User"),
+        meta: {
+          title: "用户列表"
+        }
+      }
+    ]
   },
 ];
 
