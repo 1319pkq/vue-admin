@@ -1,6 +1,8 @@
 <template>
   <div id="main-warp">
-    <router-view />
+    <div class="main-content">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -21,9 +23,14 @@ export default {
   left: $navMenu;
   bottom: 0;
   right: 0;
-  background: pink;
   border: 30px solid #f7f7f7;
   border-bottom: none;
   margin-top: 10px;
+}
+.main-content {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  box-sizing: border-box;
 }
 </style>

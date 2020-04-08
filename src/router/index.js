@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import Layout from "../views/layout/Layout"
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -25,10 +27,11 @@ const routes = [
   {
     path: "/layout",
     name: "Layout",
-    component: () => import("../views/layout/Layout"),
+    component: Layout,
     redirect: "console",
     meta: {
-      title: "控制台"
+      title: "控制台",
+      icon: "el-icon-odometer"
     },
     children: [
       {
@@ -45,9 +48,10 @@ const routes = [
   {
     path: "/info",
     name: "Info",
-    component: () => import("../views/layout/Layout"),
+    component: Layout,
     meta: {
-      title: "信息管理"
+      title: "信息管理",
+      icon: "el-icon-copy-document"
     },
     children: [
       {
@@ -72,9 +76,10 @@ const routes = [
   {
     path: "/layout",
     name: "Layout",
-    component: () => import("../views/layout/Layout"),
+    component: Layout,
     meta: {
-      title: "用户管理"
+      title: "用户管理",
+      icon: "el-icon-user"
     },
     children: [
       {

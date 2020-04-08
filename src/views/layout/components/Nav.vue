@@ -1,11 +1,12 @@
 <template>
   <div id="nav-warp">
+    <div><img src="../../../assets/logo.png" class="logo"/></div>
     <el-menu background-color="transparent" text-color="#ffffff" router>
       <template v-for="(item, index) in router">
-        <el-submenu :index="index" :key="item.id" v-if="!item.hidden">
+        <el-submenu :index="index + ''" :key="item.id" v-if="!item.hidden">
           <!-- 一级菜单 -->
           <template slot="title">
-            <i class="el-icon-location"></i>
+            <i :class="item.meta.icon"></i>
             <span slot="title">{{item.meta.title}}</span>
           </template>
           <!-- 字级菜单 -->
@@ -46,5 +47,9 @@ export default {
   height: 100vh;
   background-color: #344a5f;
 }
-
+.logo {
+  width: 92px;
+  height: 92px;
+  margin: 28px auto 30px;
+}
 </style>
