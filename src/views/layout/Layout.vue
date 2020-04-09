@@ -1,5 +1,5 @@
 <template>
-  <div id="layout">
+  <div id="layout" :class="[navStatus ? 'close' : 'open']">
     <LayoutHeader />
     <LayoutMain />
     <LayoutNav />
@@ -18,11 +18,18 @@ export default {
     LayoutNav
   },
   data() {
-    return {}
+    return {};
+  },
+  computed: {
+    navStatus() {
+      return this.$store.state.isCollapse;
+    }
+  },
+  mounted() {
+
   }
 };
 </script>
 
 <style lang="scss" scoped>
-
 </style>

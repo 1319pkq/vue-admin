@@ -1,7 +1,7 @@
 <template>
   <div id="header-warp">
     <div class="pull-left header-icon">
-      <div class="el-icon-s-operation"></div>
+      <div class="el-icon-s-operation" @click="navMenuState()"></div>
     </div>
     <div class="pull-right">
       <div class="user-info left">
@@ -20,6 +20,12 @@ export default {
   name: "header-warp",
   data() {
     return {};
+  },
+  methods: {
+    navMenuState() {
+      // 触发vuex中的方法
+      this.$store.commit('SET_COLLAPSE')
+    }
   }
 };
 </script>
@@ -29,13 +35,12 @@ export default {
 #header-warp {
   position: fixed;
   top: 0;
-  left: $navMenu;
   right: 0;
   height: 75px;
   line-height: 75px;
   box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.3);
+  -webkit-transition: all .3s ease 0s;
 }
-
 .pull-left {
   float: left;
   margin-left: 35px;
@@ -67,6 +72,16 @@ export default {
     text-align: center;
     cursor: pointer;
     border-left: 1px solid #d4d4d4;
+  }
+}
+.open {
+  #header-warp {
+    left: $navMenu;
+  }
+}
+.close {
+  #header-warp {
+    left: $navMenuMin;
   }
 }
 </style>
