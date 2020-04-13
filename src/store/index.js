@@ -1,22 +1,24 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import app from "./modules/app.js";
+import user from "./modules/user.js";
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    // 获取本地存储
-    isCollapse: JSON.parse(sessionStorage.getItem('isCollapse')) || false
-  },
-  getters: { //computed
-  },
-  mutations: {
-    SET_COLLAPSE(state) {
-      state.isCollapse = !state.isCollapse
-      // h5本地存储
-      sessionStorage.setItem('isCollapse', JSON.stringify(state.isCollapse));
-    },
-  },
+  // 储存初始化数据this.store.state.XX
+  state: {},
+  // state里面数据二次处理
+  getters: {},
+  // 对数据进行计算方法全部写在里面(类似computed)在页面中触发使用
+  // this.$store.commit('FU')
+  mutations: {},
+  // 异步
   actions: {},
-  modules: {}
+  // 模块化vuex
+  modules: {
+    app,
+    user
+  }
 });

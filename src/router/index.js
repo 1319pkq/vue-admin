@@ -9,6 +9,7 @@ const routes = [
   {
     path: "/",
     redirect: "login",
+    component: () => import("../views/login/Login"),
     meta: {
       title: "主页"
     },

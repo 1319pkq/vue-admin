@@ -35,7 +35,7 @@ export default {
   computed: {
     // 导航折叠状态改变
     isCollapse() {
-      return this.$store.state.isCollapse;
+      return this.$store.state.app.isCollapse;
     }
   },
   // 创建完成时

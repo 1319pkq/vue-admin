@@ -202,30 +202,44 @@ export default {
     },
     // 登录
     login() {
-      let requestData = {
+      let repuestData = {
         username: this.ruleForm.username,
         password: sha1(this.ruleForm.password),
         code: this.ruleForm.code
       };
-      // 登录接口
-      Login(requestData)
-        .then(response => {
-          console.log("登录结果" + response);
-          this.$message({
-            message: response.data.message,
-            type: "success"
-          });
-          this.$router.push({
-            name: 'Layout',
-            query: {
-              id: 1,
-              name: "pkq"
-            }
-          })
-        })
-        .catch(error => {
-          console.log(error);
+      this.$store.dispatch("loginX", repuestData).then(response => {
+        console.log("登录结果" + response);
+        this.$message({
+          message: response.data.message,
+          type: "success"
         });
+        this.$router.push({
+          name: "Layout",
+          query: {
+            id: 1,
+            name: "pkq"
+          }
+        });
+      });
+      // 登录接口
+      // Login(repuestData)
+      //   .then(response => {
+      //     console.log("登录结果" + response);
+      //     this.$message({
+      //       message: response.data.message,
+      //       type: "success"
+      //     });
+      //     this.$router.push({
+      //       name: 'Layout',
+      //       query: {
+      //         id: 1,
+      //         name: "pkq"
+      //       }
+      //     })
+      //   })
+      //   .catch(error => {
+      //     console.log(error);
+      //   });
     },
     // 注册
     register() {
@@ -265,7 +279,7 @@ export default {
       // 请求的接口
       GetSms({ username: this.ruleForm.username, module: this.module })
         .then(response => {
-          console.log(response);
+          // console.log(response);
           // 倒计时
           this.countTimer();
           this.$message({

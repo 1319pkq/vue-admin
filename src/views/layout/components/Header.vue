@@ -6,7 +6,7 @@
     <div class="pull-right">
       <div class="user-info left">
         <img src="../../../assets/1.jpg" class="img" />
-        哈哈哈hhhhhhhhhhhhhhhhhhhhhhhh
+        {{username}}
       </div>
       <div class="header-icon left">
         <div class="el-icon-coordinate"></div>
@@ -19,12 +19,17 @@
 export default {
   name: "header-warp",
   data() {
-    return {};
+    return {
+      username: this.$store.state.app.username
+    };
   },
   methods: {
     navMenuState() {
       // 触发vuex中的方法
-      this.$store.commit('SET_COLLAPSE')
+      this.$store.commit("SET_COLLAPSE");
+      // 触发actions中的方法
+      this.$store.dispatch("test");
+
     }
   }
 };
@@ -39,7 +44,7 @@ export default {
   height: 75px;
   line-height: 75px;
   box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.3);
-  -webkit-transition: all .3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
 }
 .pull-left {
   float: left;
