@@ -8,7 +8,8 @@
         <img src="../../../assets/1.jpg" class="img" />
         {{username}}
       </div>
-      <div class="header-icon left">
+      <!-- 退出图标 -->
+      <div class="header-icon left" @click="exit()">
         <div class="el-icon-coordinate"></div>
       </div>
     </div>
@@ -27,9 +28,13 @@ export default {
     navMenuState() {
       // 触发vuex中的方法
       this.$store.commit("SET_COLLAPSE");
-      // 触发actions中的方法
-      this.$store.dispatch("test");
-
+    },
+    exit() {
+      this.$store.dispatch("exitX").then(() => {
+        this.$router.push({
+          name: "Login"
+        })
+      });
     }
   }
 };

@@ -75,8 +75,8 @@ const routes = [
   },
   // ************************************************************用户******************************
   {
-    path: "/layout",
-    name: "Layout",
+    path: "/user",
+    name: "User",
     component: Layout,
     meta: {
       title: "用户管理",
@@ -84,8 +84,8 @@ const routes = [
     },
     children: [
       {
-        path: "/user",
-        name: "User",
+        path: "/userList",
+        name: "UserList",
         component: () => import("../views/user/User"),
         meta: {
           title: "用户列表"

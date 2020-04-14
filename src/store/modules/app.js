@@ -1,6 +1,6 @@
 import { Login } from "@/api/login";
 import { setToKen } from "@/utils/app"
-import { setUserName, getUserName } from "@/utils/app"
+import { setUserName, getUserName, removeToKen, removeUserName } from "@/utils/app"
 
 const app = {
   // 储存初始化数据this.store.state.XX
@@ -47,6 +47,18 @@ const app = {
         }).catch((error) => {
           reject(error)
         })
+      })
+    },
+    // 退出页面清空cookie
+    exitX({commit}) {
+      return new Promise((resolve, reject) => {
+        removeToKen();
+        removeUserName();
+        commit("SET_TOKEN", "");
+        commit("SET_USERNAME", "");
+        resolve();
+      }).catch((error) => {
+        reject(error)
       })
     }
   },

@@ -12,13 +12,17 @@ export function setToKen(token) {
 }
 
 export function removeToKen(token) {
-  return cookie.set(adminToKen)
+  return cookie.remove(adminToKen)
 }
 
 export function setUserName(value) {
-  return cookie.set('username', value)
+  return cookie.set(usernameKey, value)
 }
 
 export function getUserName() {
   return cookie.get(usernameKey);
+}
+
+export function removeUserName() {
+  return cookie.remove(usernameKey)
 }
