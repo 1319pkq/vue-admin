@@ -36,3 +36,38 @@
     color: $mainColor !important;
   }
 }
+
+// 信息列表页面
+.infoList {
+  .el-table td, .el-table th {
+    text-align: center;
+  }
+  th {
+    font-weight: bold;
+    color: #233a5f;
+  } 
+  tds {
+    font-size: 14px;
+  };
+  // 弹窗
+  .el-dialog__body {
+    padding: 30px 15px !important;
+  }
+  .el-dialog__footer {
+    text-align: center;
+  }
+  .el-form-item {
+    margin-bottom: 20px;
+  }
+  .el-form-item:last-child {
+    margin-bottom: 0 !important;
+  }
+  .el-dialog__footer {
+    .dialog-footer {
+      .el-button {
+        width: 150px;
+      }
+    }
+  }
+
+}
