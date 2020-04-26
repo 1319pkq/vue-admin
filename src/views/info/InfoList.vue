@@ -1,5 +1,5 @@
 <template>
-  <div class="infoList">
+  <div id="infoList">
     <!-- 头 -->
     <el-row :gutter="10">
       <el-col :span="4">
@@ -69,7 +69,7 @@
       <el-table-column prop="user" label="管理员" width="100"></el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button size="mini" type="danger">删除</el-button>
+          <el-button size="mini" type="danger" @click="delete_item()">删除</el-button>
           <el-button size="mini" type="success" @click="dialog = true">编辑</el-button>
         </template>
       </el-table-column>
@@ -78,7 +78,7 @@
     <!-- 底部分页 -->
     <el-row :gutter="10" class="margin-top-30">
       <el-col :span="8">
-        <el-button size="mediu">批量删除</el-button>
+        <el-button size="mediu" @click="delete_all()">批量删除</el-button>
       </el-col>
       <el-col :span="16">
         <el-pagination
@@ -184,7 +184,7 @@ export default {
         desc: ""
       },
       formLabelWidth: "80px",
-       textarea: ''
+      textarea: ""
     };
   },
   methods: {
@@ -193,6 +193,17 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    delete_item() {
+      this.confirm({
+        content: "永久删除该文件,是否继续?",
+        title: "警告!"
+      });
+    },
+    delete_all() {
+      this.confirm({
+        content: "删除所有文件,是否继续?"
+      });
     }
   }
 };

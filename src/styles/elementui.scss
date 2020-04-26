@@ -38,7 +38,7 @@
 }
 
 // 信息列表页面
-.infoList {
+#infoList {
   .el-table td, .el-table th {
     text-align: center;
   }
@@ -46,7 +46,7 @@
     font-weight: bold;
     color: #233a5f;
   } 
-  tds {
+  td {
     font-size: 14px;
   };
   // 弹窗
@@ -70,4 +70,14 @@
     }
   }
 
+}
+
+// 信息分类页面
+#infoSort {
+  .el-form-item {
+    margin-top: 20px;
+    .el-input__inner {
+      width: 200px;
+    }
+  }
 }

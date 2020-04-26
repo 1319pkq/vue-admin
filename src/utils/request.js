@@ -1,5 +1,6 @@
-import axios from "axios"
+import axios from "axios";
 import { Message } from 'element-ui';
+import {getToKen, getUserName } from "@/utils/app";
 
 // 判断是开发环境还是生产环境
 const BASEURL = process.env.NODE_ENV === 'production' ? '' : '/devApi';
@@ -18,9 +19,8 @@ service.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
   // 可以传参数Tokey userId sui业务需求
 
-  config.headers.Tokey = "tokey111" 
-  config.headers.userId = "userId222" 
-  config.headers.sui = "sui333" 
+  config.headers['Tokey'] = getToKen()
+  config.headers['UserName'] = getUserName()
 
   return config;
 }, function (error) {

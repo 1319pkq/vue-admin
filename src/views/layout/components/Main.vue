@@ -32,6 +32,7 @@ export default {
   height: 100%;
   padding: 30px;
   box-sizing: border-box;
+  overflow: auto;
 }
 .open {
   #main-warp {
